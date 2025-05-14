@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "348531329854",
+    "project_id": "readify-a7423",
+    "storage_bucket": "readify-a7423.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:348531329854:android:4144308e5c6cd8fa93fa6f",
+        "android_client_info": {
+          "package_name": "com.example.readify"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDUny5MkrQnHsKi4F1E7532UcjSSmKNqU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:348531329854:android:e8ad3ed7f6592b4b93fa6f",
+        "android_client_info": {
+          "package_name": "com.faliorith.readify"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDUny5MkrQnHsKi4F1E7532UcjSSmKNqU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

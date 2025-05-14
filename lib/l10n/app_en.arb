@@ -1,0 +1,75 @@
+{
+  "appName": "Readify",
+  "@appName": {
+    "description": "The name of the application"
+  },
+  "loginTitle": "Welcome Back",
+  "@loginTitle": {
+    "description": "Title shown on the login screen"
+  },
+  "emailHint": "Email",
+  "@emailHint": {
+    "description": "Hint text for email input field"
+  },
+  "passwordHint": "Password",
+  "@passwordHint": {
+    "description": "Hint text for password input field"
+  },
+  "loginButton": "Login",
+  "@loginButton": {
+    "description": "Text for the login button"
+  },
+  "registerButton": "Register",
+  "@registerButton": {
+    "description": "Text for the register button"
+  },
+  "homeTab": "Home",
+  "@homeTab": {
+    "description": "Text for the home tab"
+  },
+  "searchTab": "Search",
+  "@searchTab": {
+    "description": "Text for the search tab"
+  },
+  "libraryTab": "Library",
+  "@libraryTab": {
+    "description": "Text for the library tab"
+  },
+  "profileTab": "Profile",
+  "@profileTab": {
+    "description": "Text for the profile tab"
+  },
+  "appTitle": "Readify",
+  "home": "Home",
+  "search": "Search",
+  "favorites": "Favorites",
+  "profile": "Profile",
+  "settings": "Settings",
+  "login": "Login",
+  "register": "Register",
+  "email": "Email",
+  "password": "Password",
+  "confirmPassword": "Confirm Password",
+  "forgotPassword": "Forgot Password?",
+  "signIn": "Sign In",
+  "signUp": "Sign Up",
+  "signOut": "Sign Out",
+  "errorOccurred": "An error occurred",
+  "tryAgain": "Try Again",
+  "cancel": "Cancel",
+  "save": "Save",
+  "delete": "Delete",
+  "edit": "Edit",
+  "loading": "Loading...",
+  "noData": "No data available",
+  "searchHint": "Search books...",
+  "darkMode": "Dark Mode",
+  "language": "Language",
+  "notifications": "Notifications",
+  "nameHint": "Name",
+  "emailRequired": "Please enter your email",
+  "passwordRequired": "Please enter your password",
+  "nameRequired": "Please enter your name",
+  "passwordTooShort": "Password must be at least 6 characters",
+  "settingsTab": "Settings"
+} 
