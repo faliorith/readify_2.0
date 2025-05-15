@@ -12,16 +12,21 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<SignUpRequested>(_onSignUpRequested);
     on<SignOutRequested>(_onSignOutRequested);
     on<UpdateProfileRequested>(_onUpdateProfileRequested);
-
+    
+    // Если currentUser синхронный — можно оставить
     add(CheckAuthStatus());
   }
 
-  void _onCheckAuthStatus(CheckAuthStatus event, Emitter<AuthState> emit) {
-    final user = authService.currentUser;
-    if (user != null) {
-      emit(Authenticated(user));
-    } else {
-      emit(Unauthenticated());
+  Future<void> _onCheckAuthStatus(CheckAuthStatus event, Emitter<AuthState> emit) async {
+    try {
+      final user = await authService.currentUser; // если async
+      if (user != null) {
+        emit(Authenticated(user));
+      } else {
+        emit(Unauthenticated());
+      }
+    } catch (e) {
+      emit(AuthError("Failed to check auth status: ${e.toString()}"));
     }
   }
 
@@ -32,9 +37,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         event.email,
         event.password,
       );
-      emit(Authenticated(result.user!));
+      final user = result.user;
+      if (user != null) {
+        emit(Authenticated(user));
+      } else {
+        emit(AuthError("User is null after sign in"));
+      }
     } catch (e) {
-      emit(AuthError(e.toString()));
+      emit(AuthError("Sign in failed: ${e.toString()}"));
     }
   }
 
@@ -46,9 +56,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         event.password,
         name: event.name,
       );
-      emit(Authenticated(result.user!));
+      final user = result.user;
+      if (user != null) {
+        emit(Authenticated(user));
+      } else {
+        emit(AuthError("User is null after sign up"));
+      }
     } catch (e) {
-      emit(AuthError(e.toString()));
+      emit(AuthError("Sign up failed: ${e.toString()}"));
     }
   }
 
@@ -58,23 +73,33 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       await authService.signOut();
       emit(Unauthenticated());
     } catch (e) {
-      emit(AuthError(e.toString()));
+      emit(AuthError("Sign out failed: ${e.toString()}"));
     }
   }
 
   Future<void> _onUpdateProfileRequested(UpdateProfileRequested event, Emitter<AuthState> emit) async {
+    emit(AuthLoading());
     try {
-      final user = authService.currentUser;
+      final user = await authService.currentUser;
       if (user != null) {
         await authService.updateProfile(
           userId: user.uid,
           name: event.name,
           photoUrl: event.photoUrl,
         );
-        emit(Authenticated(user));
+
+        await authService.reloadUser(); // если реализовано
+        final updatedUser = await authService.currentUser;
+        if (updatedUser != null) {
+          emit(Authenticated(updatedUser));
+        } else {
+          emit(AuthError("Failed to reload updated user"));
+        }
+      } else {
+        emit(AuthError("No user found to update profile"));
       }
     } catch (e) {
-      emit(AuthError(e.toString()));
+      emit(AuthError("Profile update failed: ${e.toString()}"));
     }
   }
 }

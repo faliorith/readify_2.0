@@ -1,4 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart'
+    show FirebaseAuth, FirebaseAuthException, User, UserCredential;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:email_validator/email_validator.dart';
 import '../models/user_model.dart';
@@ -10,39 +11,34 @@ class AuthService {
   AuthService({
     required FirebaseAuth firebaseAuth,
     required FirebaseFirestore firestore,
-  }) : _auth = firebaseAuth,
-       _firestore = firestore;
+  })  : _auth = firebaseAuth,
+        _firestore = firestore;
 
-  // Текущий пользователь
   User? get currentUser => _auth.currentUser;
-
-  // Поток состояния аутентификации
   Stream<User?> get authStateChanges => _auth.authStateChanges();
 
-  // Получение данных текущего пользователя
+  // Получение профиля пользователя
   Future<UserModel?> getCurrentUser() async {
     try {
-      final user = _auth.currentUser;
+      final user = currentUser;
       if (user != null) {
         final doc = await _firestore.collection('users').doc(user.uid).get();
-        if (doc.exists) {
-          return UserModel.fromFirestore(doc);
-        }
+        if (doc.exists) return UserModel.fromFirestore(doc);
       }
       return null;
     } catch (e) {
-      throw Exception('Ошибка получения данных пользователя: ${e.toString()}');
+      throw Exception('Ошибка получения данных: ${e.toString()}');
     }
   }
 
-  // Вход по email и паролю
+  // Вход
   Future<UserCredential> signInWithEmailAndPassword(
     String email,
     String password,
   ) async {
     try {
       if (!EmailValidator.validate(email)) {
-        throw Exception('Неверный формат email');
+        throw Exception('Неверный email');
       }
 
       return await _auth.signInWithEmailAndPassword(
@@ -56,7 +52,7 @@ class AuthService {
     }
   }
 
-  // Регистрация нового пользователя
+  // Регистрация
   Future<UserCredential> registerWithEmailAndPassword(
     String email,
     String password, {
@@ -64,11 +60,11 @@ class AuthService {
   }) async {
     try {
       if (!EmailValidator.validate(email)) {
-        throw Exception('Неверный формат email');
+        throw Exception('Неверный email');
       }
 
       if (password.length < 6) {
-        throw Exception('Пароль должен содержать минимум 6 символов');
+        throw Exception('Пароль слишком короткий');
       }
 
       final credential = await _auth.createUserWithEmailAndPassword(
@@ -77,7 +73,7 @@ class AuthService {
       );
 
       if (credential.user == null) {
-        throw Exception('Не удалось создать пользователя');
+        throw Exception('Ошибка создания пользователя');
       }
 
       await _firestore.collection('users').doc(credential.user!.uid).set({
@@ -91,14 +87,12 @@ class AuthService {
       return credential;
     } on FirebaseAuthException catch (e) {
       throw _handleAuthException(e);
-    } on FirebaseException catch (e) {
-      throw Exception('Ошибка базы данных: ${e.message}');
     } catch (e) {
       throw Exception('Ошибка регистрации: ${e.toString()}');
     }
   }
 
-  // Выход из системы
+  // Выход из аккаунта
   Future<void> signOut() async {
     try {
       await _auth.signOut();
@@ -120,7 +114,7 @@ class AuthService {
     }
   }
 
-  // Обновление профиля
+  // Обновление профиля пользователя
   Future<void> updateProfile({
     required String userId,
     String? name,
@@ -140,7 +134,7 @@ class AuthService {
     }
   }
 
-  // Отправка email для верификации
+  // Отправка письма с верификацией email
   Future<void> sendEmailVerification() async {
     try {
       final user = _auth.currentUser;
@@ -152,7 +146,16 @@ class AuthService {
     }
   }
 
-  // Обработчик ошибок Firebase Auth
+  // Принудительное обновление данных пользователя из Firebase
+  Future<void> reloadUser() async {
+    try {
+      await _auth.currentUser?.reload();
+    } catch (e) {
+      throw Exception('Ошибка обновления пользователя: ${e.toString()}');
+    }
+  }
+
+  // Обработка ошибок Firebase Auth
   Exception _handleAuthException(FirebaseAuthException e) {
     switch (e.code) {
       case 'user-not-found':
