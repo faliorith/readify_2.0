@@ -52,22 +52,25 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => ThemeBloc(prefs),
-        ),
-        BlocProvider(
-          create: (context) => LanguageBloc(prefs),
-        ),
-        BlocProvider(
-          create: (context) => BookBloc(
-            bookRepository: BookRepository(),
-            auth: FirebaseAuth.instance,
-          ),
-        ),
-      ],
-      child: BlocBuilder<ThemeBloc, ThemeState>(
+return MultiBlocProvider(
+  providers: [
+    BlocProvider(
+      create: (context) => ThemeBloc(prefs),
+    ),
+    BlocProvider(
+      create: (context) => LanguageBloc(prefs),
+    ),
+    BlocProvider(
+      create: (context) => BookBloc(
+        bookRepository: BookRepository(),
+        auth: FirebaseAuth.instance,
+      ),
+    ),
+    BlocProvider(
+      create: (context) => AuthBloc(AuthService()),
+    ),
+  ],
+  child: BlocBuilder<ThemeBloc, ThemeState>(
         builder: (context, themeState) {
           return BlocBuilder<LanguageBloc, LanguageState>(
             builder: (context, languageState) {

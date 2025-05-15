@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import '../../blocs/auth/auth_bloc.dart';
 import '../../blocs/auth/auth_event.dart';
 import '../../blocs/auth/auth_state.dart';
@@ -38,6 +39,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
     }
   }
 
+  void _navigateToLogin() {
+    context.go('/login');
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
@@ -52,6 +57,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(state.message)),
             );
+          } else if (state is Authenticated) {
+            context.go('/home');
           }
         },
         child: SafeArea(
@@ -119,6 +126,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       );
                     },
                   ),
+                  const SizedBox(height: 16),
+                  TextButton(
+                    onPressed: _navigateToLogin,
+                    child: Text(l10n.alreadyHaveAccount),
+                  ),
                 ],
               ),
             ),
@@ -127,4 +139,4 @@ class _RegisterScreenState extends State<RegisterScreen> {
       ),
     );
   }
-} 
+}

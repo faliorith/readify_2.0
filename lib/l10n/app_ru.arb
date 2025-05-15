@@ -17,6 +17,8 @@
   "settings": "Настройки",
   "login": "Вход",
   "register": "Регистрация",
+  "alreadyHaveAccount": "Уже есть аккаунт?",
+  "createAccount": "Создать аккаунт",
   "email": "Email",
   "password": "Пароль",
   "confirmPassword": "Подтвердите пароль",

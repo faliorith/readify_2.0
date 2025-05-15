@@ -47,6 +47,8 @@
   "settings": "Settings",
   "login": "Login",
   "register": "Register",
+  "alreadyHaveAccount": "Already have an account?",
+  "createAccount": "Create an account",
   "email": "Email",
   "password": "Password",
   "confirmPassword": "Confirm Password",

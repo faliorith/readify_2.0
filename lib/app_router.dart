@@ -13,7 +13,7 @@ import 'package:readify/models/book.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(
-    initialLocation: '/',
+    initialLocation: '/login',
     errorBuilder: (context, state) => ErrorScreen(
       error: state.error.toString(),
     ),
@@ -120,4 +120,4 @@ class ScaffoldWithBottomNav extends StatelessWidget {
       ),
     );
   }
-} 
+}

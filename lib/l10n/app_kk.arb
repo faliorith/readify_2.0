@@ -1,6 +1,8 @@
 {
   "appName": "Readify",
   "loginTitle": "Қайта келгеніңізге қош келдіңіз",
+  "alreadyHaveAccount": "Аккаунтыңыз бар ма?",
+  "createAccount": "Аккаунт ашу",
   "emailHint": "Email",
   "passwordHint": "Құпия сөз",
   "loginButton": "Кіру",
