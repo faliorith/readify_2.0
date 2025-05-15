@@ -135,10 +135,10 @@ class SettingsScreen extends StatelessWidget {
             context,
             'О приложении',
             [
-              ListTile(
-                leading: const Icon(Icons.info),
-                title: const Text('Версия'),
-                subtitle: const Text('1.0.0'),
+              const ListTile(
+                leading: Icon(Icons.info),
+                title: Text('Версия'),
+                subtitle: Text('1.0.0'),
               ),
               ListTile(
                 leading: const Icon(Icons.description),

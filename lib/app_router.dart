@@ -18,13 +18,24 @@ class AppRouter {
       error: state.error.toString(),
     ),
     routes: [
+      // Auth routes
+      GoRoute(
+        path: '/login',
+        builder: (context, state) => const LoginScreen(),
+      ),
+      GoRoute(
+        path: '/register',
+        builder: (context, state) => const RegisterScreen(),
+      ),
+      
+      // Main app shell with bottom navigation
       ShellRoute(
         builder: (context, state, child) {
           return ScaffoldWithBottomNav(child: child);
         },
         routes: [
           GoRoute(
-            path: '/',
+            path: '/home',
             builder: (context, state) => const HomeScreen(),
           ),
           GoRoute(
@@ -41,14 +52,8 @@ class AppRouter {
           ),
         ],
       ),
-      GoRoute(
-        path: '/login',
-        builder: (context, state) => const LoginScreen(),
-      ),
-      GoRoute(
-        path: '/register',
-        builder: (context, state) => const RegisterScreen(),
-      ),
+      
+      // Book details route
       GoRoute(
         path: '/book/:id',
         builder: (context, state) {
@@ -59,6 +64,12 @@ class AppRouter {
           final book = state.extra as Book;
           return BookDetailsScreen(book: book);
         },
+      ),
+      
+      // Redirect from root to home
+      GoRoute(
+        path: '/',
+        redirect: (context, state) => '/home',
       ),
     ],
   );
@@ -104,7 +115,7 @@ class ScaffoldWithBottomNav extends StatelessWidget {
         onDestinationSelected: (index) {
           switch (index) {
             case 0:
-              context.go('/');
+              context.go('/home');
               break;
             case 1:
               context.go('/search');

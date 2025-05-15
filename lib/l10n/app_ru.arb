@@ -1,47 +1,121 @@
 {
+  "Readify": "Readify",
+  "@Readify": {
+    "description": "Название приложения"
+  },
+  "@@locale": "ru",
   "appName": "Readify",
+  "@appName": {
+    "description": "Название приложения"
+  },
   "loginTitle": "С возвращением",
+  "@loginTitle": {
+    "description": "Заголовок на экране входа"
+  },
   "emailHint": "Email",
+  "@emailHint": {
+    "description": "Подсказка для поля ввода email"
+  },
   "passwordHint": "Пароль",
+  "@passwordHint": {
+    "description": "Подсказка для поля ввода пароля"
+  },
   "loginButton": "Войти",
+  "@loginButton": {
+    "description": "Текст кнопки входа"
+  },
   "registerButton": "Регистрация",
+  "@registerButton": {
+    "description": "Текст кнопки регистрации"
+  },
   "homeTab": "Главная",
+  "@homeTab": {
+    "description": "Текст для вкладки главной страницы"
+  },
   "searchTab": "Поиск",
+  "@searchTab": {
+    "description": "Текст для вкладки поиска"
+  },
   "libraryTab": "Библиотека",
+  "@libraryTab": {
+    "description": "Текст для вкладки библиотеки"
+  },
   "profileTab": "Профиль",
+  "@profileTab": {
+    "description": "Текст для вкладки профиля"
+  },
   "appTitle": "Readify",
+  "@appTitle": {},
   "home": "Главная",
+  "@home": {},
   "search": "Поиск",
+  "@search": {},
   "favorites": "Избранное",
+  "@favorites": {},
   "profile": "Профиль",
+  "@profile": {},
   "settings": "Настройки",
+  "@settings": {},
   "login": "Вход",
+  "@login": {},
   "register": "Регистрация",
+  "@register": {},
   "alreadyHaveAccount": "Уже есть аккаунт?",
+  "@alreadyHaveAccount": {
+    "description": "Текст для перехода на экран входа с экрана регистрации"
+  },
   "createAccount": "Создать аккаунт",
+  "@createAccount": {
+    "description": "Текст для перехода на экран регистрации с экрана входа"
+  },
   "email": "Email",
+  "@email": {},
   "password": "Пароль",
+  "@password": {},
   "confirmPassword": "Подтвердите пароль",
+  "@confirmPassword": {},
   "forgotPassword": "Забыли пароль?",
+  "@forgotPassword": {},
   "signIn": "Войти",
+  "@signIn": {},
   "signUp": "Зарегистрироваться",
+  "@signUp": {},
   "signOut": "Выйти",
+  "@signOut": {},
   "errorOccurred": "Произошла ошибка",
+  "@errorOccurred": {},
   "tryAgain": "Попробовать снова",
+  "@tryAgain": {},
   "cancel": "Отмена",
+  "@cancel": {},
   "save": "Сохранить",
+  "@save": {},
   "delete": "Удалить",
+  "@delete": {},
   "edit": "Редактировать",
+  "@edit": {},
   "loading": "Загрузка...",
+  "@loading": {},
   "noData": "Нет данных",
+  "@noData": {},
   "searchHint": "Поиск книг...",
+  "@searchHint": {},
   "darkMode": "Тёмная тема",
+  "@darkMode": {},
   "language": "Язык",
+  "@language": {},
   "notifications": "Уведомления",
+  "@notifications": {},
   "nameHint": "Имя",
+  "@nameHint": {},
   "emailRequired": "Пожалуйста, введите email",
+  "@emailRequired": {},
   "passwordRequired": "Пожалуйста, введите пароль",
+  "@passwordRequired": {},
   "nameRequired": "Пожалуйста, введите имя",
+  "@nameRequired": {},
   "passwordTooShort": "Пароль должен содержать не менее 6 символов",
-  "settingsTab": "Настройки"
-} 
+  "@passwordTooShort": {},
+  "settingsTab": "Настройки",
+  "@settingsTab": {}
+}

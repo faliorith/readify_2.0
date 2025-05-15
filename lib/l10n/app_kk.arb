@@ -1,47 +1,117 @@
 {
+  "@@locale": "kk",
   "appName": "Readify",
+  "@appName": {
+    "description": "Қолданба атауы"
+  },
   "loginTitle": "Қайта келгеніңізге қош келдіңіз",
-  "alreadyHaveAccount": "Аккаунтыңыз бар ма?",
-  "createAccount": "Аккаунт ашу",
+  "@loginTitle": {
+    "description": "Кіру экранындағы тақырып"
+  },
   "emailHint": "Email",
+  "@emailHint": {
+    "description": "Email енгізу өрісіне үлесім"
+  },
   "passwordHint": "Құпия сөз",
+  "@passwordHint": {
+    "description": "Құпия сөз енгізу өрісіне үлесім"
+  },
   "loginButton": "Кіру",
+  "@loginButton": {
+    "description": "Кіру түймесінің мәтіні"
+  },
   "registerButton": "Тіркелу",
+  "@registerButton": {
+    "description": "Тіркеу түймесінің мәтіні"
+  },
   "homeTab": "Басты бет",
+  "@homeTab": {
+    "description": "Басты бет қойындысының мәтіні"
+  },
   "searchTab": "Іздеу",
+  "@searchTab": {
+    "description": "Іздеу қойындысының мәтіні"
+  },
   "libraryTab": "Кітапхана",
+  "@libraryTab": {
+    "description": "Кітапхана қойындысының мәтіні"
+  },
   "profileTab": "Профиль",
+  "@profileTab": {
+    "description": "Профиль қойындысының мәтіні"
+  },
   "appTitle": "Readify",
+  "@appTitle": {},
   "home": "Басты бет",
+  "@home": {},
   "search": "Іздеу",
+  "@search": {},
   "favorites": "Таңдаулылар",
+  "@favorites": {},
   "profile": "Профиль",
+  "@profile": {},
   "settings": "Параметрлер",
+  "@settings": {},
   "login": "Кіру",
+  "@login": {},
   "register": "Тіркелу",
+  "@register": {},
+  "alreadyHaveAccount": "Аккаунтыңыз бар ма?",
+  "@alreadyHaveAccount": {
+    "description": "Тіркеу экранынан кіру экранына өту үшін мәтін"
+  },
+  "createAccount": "Аккаунт ашу",
+  "@createAccount": {
+    "description": "Кіру экранынан тіркеу экранына өту үшін мәтін"
+  },
   "email": "Email",
+  "@email": {},
   "password": "Құпия сөз",
+  "@password": {},
   "confirmPassword": "Құпия сөзді растаңыз",
+  "@confirmPassword": {},
   "forgotPassword": "Құпия сөзді ұмыттыңыз ба?",
+  "@forgotPassword": {},
   "signIn": "Кіру",
+  "@signIn": {},
   "signUp": "Тіркелу",
+  "@signUp": {},
   "signOut": "Шығу",
+  "@signOut": {},
   "errorOccurred": "Қате орын алды",
+  "@errorOccurred": {},
   "tryAgain": "Қайталап көріңіз",
+  "@tryAgain": {},
   "cancel": "Болдырмау",
+  "@cancel": {},
   "save": "Сақтау",
+  "@save": {},
   "delete": "Жою",
+  "@delete": {},
   "edit": "Өңдеу",
+  "@edit": {},
   "loading": "Жүктелуде...",
+  "@loading": {},
   "noData": "Деректер жоқ",
+  "@noData": {},
   "searchHint": "Кітаптарды іздеу...",
+  "@searchHint": {},
   "darkMode": "Қараңғы тақырып",
+  "@darkMode": {},
   "language": "Тіл",
+  "@language": {},
   "notifications": "Хабарландырулар",
+  "@notifications": {},
   "nameHint": "Аты",
+  "@nameHint": {},
   "emailRequired": "Email енгізіңіз",
+  "@emailRequired": {},
   "passwordRequired": "Құпия сөзді енгізіңіз",
+  "@passwordRequired": {},
   "nameRequired": "Атыңызды енгізіңіз",
+  "@nameRequired": {},
   "passwordTooShort": "Құпия сөз кемінде 6 таңбадан тұруы керек",
-  "settingsTab": "Баптаулар"
-} 
+  "@passwordTooShort": {},
+  "settingsTab": "Баптаулар",
+  "@settingsTab": {}
+}
