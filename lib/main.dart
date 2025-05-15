@@ -19,13 +19,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
-  // Инициализация Firebase
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
   final prefs = await SharedPreferences.getInstance();
   final notificationService = NotificationService();
+
   final authService = AuthService(
     firebaseAuth: FirebaseAuth.instance,
     firestore: FirebaseFirestore.instance,
@@ -67,7 +67,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         BlocProvider(
-          create: (context) => AuthBloc(authService, authService: authService),
+          create: (context) => AuthBloc(authService: authService), // Исправленная строка
         ),
       ],
       child: BlocBuilder<ThemeBloc, ThemeState>(
